@@ -1,0 +1,84 @@
+<!-- Kasper - Horizontal Holographic Logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" width="320" height="60" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Kasper Travel</title>
+  <desc id="logoDesc">Kasper travel logo with holographic blue gradient and wave/plane mark</desc>
+
+  <!-- defs: gradients, filters -->
+  <defs>
+    <!-- holographic gradient -->
+    <linearGradient id="hg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00d0b8"/>
+      <stop offset="40%" stop-color="#00a3ff"/>
+      <stop offset="70%" stop-color="#0066d6"/>
+      <stop offset="100%" stop-color="#003e8a"/>
+    </linearGradient>
+
+    <!-- subtle glossy highlight -->
+    <linearGradient id="gGloss" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- glow filter -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- small plane + wave icon as symbol -->
+    <symbol id="mark" viewBox="0 0 64 64">
+      <path d="M4 44c8-6 18-6 24-2 6 4 14 6 26-4" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 30 L28 22 L34 24 L20 32 Z" fill="#ffffff" opacity="0.95"/> <!-- simple plane -->
+    </symbol>
+
+    <!-- clip for gloss shape (gives highlight only on top half of text) -->
+    <clipPath id="topClip">
+      <rect x="0" y="0" width="640" height="60"/>
+    </clipPath>
+  </defs>
+
+  <!-- background transparent area (keep for white/footer variations) -->
+  <rect width="100%" height="100%" fill="transparent"/>
+
+  <!-- mark (wave+plane) left -->
+  <g transform="translate(12,18) scale(1.3)" filter="url(#softGlow)">
+    <use href="#mark"/>
+  </g>
+
+  <!-- main text: 'Kasper' -->
+  <g transform="translate(140,76)">
+    <!-- dark stroke for readability -->
+    <text x="0" y="0" font-family="Inter, system-ui, Arial, sans-serif" font-weight="800"
+          font-size="64" letter-spacing="-2" fill="none" stroke="rgba(0,10,30,0.85)" stroke-width="4" paint-order="stroke">
+      Kasper
+    </text>
+
+    <!-- colored gradient fill -->
+    <text x="0" y="0" font-family="Inter, system-ui, Arial, sans-serif" font-weight="800"
+          font-size="64" letter-spacing="-2" fill="url(#hg)" style="mix-blend-mode: screen;">
+      Kasper
+    </text>
+
+    <!-- gloss overlay -->
+    <g clip-path="url(#topClip)">
+      <text x="0" y="0" font-family="Inter, system-ui, Arial, sans-serif" font-weight="800"
+            font-size="64" letter-spacing="-2" fill="url(#gGloss)" opacity="0.9">
+        Kasper
+      </text>
+    </g>
+
+    <!-- fine inner highlight stroke for holographic effect -->
+    <text x="0" y="0" font-family="Inter, system-ui, Arial, sans-serif" font-weight="700"
+          font-size="64" letter-spacing="-2" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1">
+      Kasper
+    </text>
+  </g>
+
+  <!-- tagline -->
+  <text x="140" y="104" font-family="Inter, system-ui, Arial, sans-serif"
+        font-size="12" fill="#dbefff">Travel • Discover • Experience</text>
+</svg>
